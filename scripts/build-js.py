@@ -24,7 +24,12 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, 'src', 'admin.js')
-ASSETS = os.path.join(ROOT, 'plugin', 'shopmaster-catalog-workbench', 'assets')
+
+# Beside the plugin, the two files go straight into it. On their own - a clone
+# of the published source, where there is no plugin to write into - they go to
+# dist/ instead, so the command in the README works from a bare checkout.
+PLUGIN_ASSETS = os.path.join(ROOT, 'plugin', 'shopmaster-catalog-workbench', 'assets')
+ASSETS = PLUGIN_ASSETS if os.path.isdir(PLUGIN_ASSETS) else os.path.join(ROOT, 'dist')
 FREE = os.path.join(ASSETS, 'admin.js')
 PRO = os.path.join(ASSETS, 'admin-pro.js')
 
@@ -37,10 +42,16 @@ HEADER = ('/* Generated from src/admin.js by scripts/build-js.py - edit that fil
 
 
 def build(text):
-    """Return (free, pro) from the marked source."""
+    """Return (free, pro) from the marked source.
+
+    Line endings are read as whatever they are and written back as newlines.
+    Git hands a Windows checkout carriage returns, and a marker followed by one
+    stopped looking like a marker - so the published source would not build on
+    a fresh clone, while building perfectly here.
+    """
     free, pro = [], []
     depth = 0
-    for num, line in enumerate(text.split('\n'), 1):
+    for num, line in enumerate(text.replace('\r\n', '\n').replace('\r', '\n').split('\n'), 1):
         if OPEN.match(line):
             if depth:
                 raise SystemExit('src/admin.js:%d: a premium block is already open' % num)
@@ -75,10 +86,13 @@ def main():
             return 1
         print('admin.js and admin-pro.js are up to date')
         return 0
+    if not os.path.isdir(ASSETS):
+        os.makedirs(ASSETS)
     io.open(FREE, 'w', encoding='utf-8', newline='').write(free)
     io.open(PRO, 'w', encoding='utf-8', newline='').write(pro)
-    print('wrote assets/admin.js (%d lines) and assets/admin-pro.js (%d lines)'
-          % (free.count('\n') + 1, pro.count('\n') + 1))
+    where = os.path.relpath(ASSETS, ROOT).replace(os.sep, '/')
+    print('wrote %s/admin.js (%d lines) and %s/admin-pro.js (%d lines)'
+          % (where, free.count('\n') + 1, where, pro.count('\n') + 1))
     return 0
 
 

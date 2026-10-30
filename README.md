@@ -12,26 +12,24 @@ The code only the paid version uses is wrapped in markers:
 
 ## Build
 
-Requires Python 3. From the root of this repository:
+Requires Python 3 and nothing else. From the root of this repository:
 
 ```
 python scripts/build-js.py
 ```
 
-It writes two files, with no markers left in either:
+It writes two files into `dist/`, with no markers left in either:
 
 | File | Contents |
 |---|---|
 | `admin-pro.js` | everything — loaded when the site can use paid code |
 | `admin.js`     | the marked parts taken out — loaded otherwise |
 
-`python scripts/build-js.py --check` exits non-zero if either file is out of
-date, which is how the release build makes sure the shipped files match this
-source.
+Those two files are byte for byte the ones shipped in the plugin's `assets/`
+folder.
 
-The script writes into the plugin's own `assets/` folder, so run it from a
-checkout that sits beside the plugin, or point `ASSETS` at wherever you want
-the two files.
+`python scripts/build-js.py --check` exits non-zero if either file is out of
+date, which is how the release build makes sure what ships matches this source.
 
 ## Licence
 
