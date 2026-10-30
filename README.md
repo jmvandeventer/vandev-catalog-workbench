@@ -1,4 +1,4 @@
-# Shopmaster Catalog Workbench — admin script source
+# VanDev Catalog Workbench — admin script source
 
 `src/admin.js` is the single source for the plugin's admin JavaScript. It is
 plain, unminified JavaScript — nothing here is compiled, minified or

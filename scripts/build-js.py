@@ -28,7 +28,7 @@ SRC = os.path.join(ROOT, 'src', 'admin.js')
 # Beside the plugin, the two files go straight into it. On their own - a clone
 # of the published source, where there is no plugin to write into - they go to
 # dist/ instead, so the command in the README works from a bare checkout.
-PLUGIN_ASSETS = os.path.join(ROOT, 'plugin', 'shopmaster-catalog-workbench', 'assets')
+PLUGIN_ASSETS = os.path.join(ROOT, 'plugin', 'vandev-catalog-workbench', 'assets')
 ASSETS = PLUGIN_ASSETS if os.path.isdir(PLUGIN_ASSETS) else os.path.join(ROOT, 'dist')
 FREE = os.path.join(ASSETS, 'admin.js')
 PRO = os.path.join(ASSETS, 'admin-pro.js')
