@@ -25252,7 +25252,7 @@
               $item.append($2('<span class="wcbat-pro-grid-desc"></span>').text(row[1]));
               $grid.append($item);
             });
-            $wrap.append($2('<div class="wcbat-pro-grid-head">VanDev Catalog Workbench Pro</div>')).append($grid);
+            $wrap.append($2('<div class="wcbat-pro-grid-head">Catalog Workbench Pro</div>')).append($grid);
             addButton(d.license_action === "connect" ? "Already Bought?" : "I Have a License", d.license_url || d.activation_url || d.account_url, true);
             addButton("See Plans", d.pricing_url, false);
             $wrap.append($buttons);
