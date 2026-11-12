@@ -952,9 +952,9 @@
     var unsaved = wcbatFilterUnsaved(from);
     if (!unsaved) return Promise.resolve(true);
     return pmConfirm(unsaved + " Leave this screen and discard them?", {
-      title: "Unsaved changes",
+      title: "Unsaved Changes",
       confirmLabel: "Discard",
-      cancelLabel: "Keep editing"
+      cancelLabel: "Keep Editing"
     });
   }
   /* Let go of the one screen being left, and only that one. The same letting
@@ -1044,9 +1044,9 @@
     var unsaved = wcbatAttrUnsaved(from);
     if (!unsaved) return Promise.resolve(true);
     return pmConfirm(unsaved + " Leave this screen and discard them?", {
-      title: "Unsaved changes",
+      title: "Unsaved Changes",
       confirmLabel: "Discard",
-      cancelLabel: "Keep editing"
+      cancelLabel: "Keep Editing"
     });
   }
 
@@ -1588,7 +1588,7 @@
     var safeSlug = brand ? safeText(brand.slug) : "";
     var safeDesc = brand ? safeText(brand.description) : "";
     var btnDataId = isNew ? 0 : brandId;
-    var html = '<div class="wcbat-detail-header"><div class="wcbat-flex-row-lg"><h3 class="wcbat-detail-title">' + (isNew ? "Create Brand" : "Edit Brand: " + safeName) + "</h3>" + (!isNew ? '<button class="wcbat-btn wcbat-btn-secondary wcbat-btn-filter wcbat-btn-sm brand-view-products-btn" data-brand-id="' + brandId + '">View Products ' + WCBAT_CARD_ARROW + '</button>' : "") + '</div><div class="wcbat-detail-actions"><button class="wcbat-btn wcbat-btn-primary wcbat-btn-sm" id="brand-save-btn" data-id="' + btnDataId + '">' + (isNew ? "Create Brand" : "Save Brand") + "</button>" + (!isNew ? '<button class="wcbat-btn wcbat-btn-danger wcbat-btn-sm" id="brand-delete-btn" data-id="' + brandId + '">Delete Brand</button>' : "") + '<button class="wcbat-detail-close" id="brand-close-btn">&times;</button></div></div><div class="wcbat-attr-fields"><div class="wcbat-attr-field"><label>Thumbnail</label><div>' + (thumbUrl ? '<img id="brand-thumb-preview" src="' + thumbUrl + '" class="wcbat-thumb-img">' : '<div id="brand-thumb-preview" class="wcbat-thumb-placeholder">\u{1F3F7}\uFE0F</div>') + '<input type="hidden" id="brand-thumb-id" value="' + thumbId + '"><button type="button" class="wcbat-btn wcbat-btn-ghost wcbat-btn-sm" id="brand-thumb-btn">Set Image</button>' + (thumbId ? ' <button type="button" class="wcbat-btn wcbat-btn-ghost wcbat-btn-sm" id="brand-thumb-remove">Remove</button>' : "") + '</div></div><div class="wcbat-attr-field"><label>Brand Name</label><input type="text" id="brand-edit-name" value="' + safeName + '"></div><div class="wcbat-attr-field"><label>Brand Slug</label><input type="text" id="brand-edit-slug" value="' + safeSlug + '"></div><div class="wcbat-attr-field"><label>Parent Brand</label><select id="brand-edit-parent" style="width:100%;border:1px solid var(--wcbat-border);border-radius:var(--wcbat-radius);padding:6px 10px;font-size:13px;">' + parentOpts + '</select></div><div class="wcbat-attr-field" class="wcbat-col-full"><label>Description</label><textarea id="brand-edit-desc" class="wcbat-textarea">' + safeDesc + "</textarea></div></div>";
+    var html = '<div class="wcbat-detail-header"><div class="wcbat-flex-row-lg"><h3 class="wcbat-detail-title">' + (isNew ? "Create Brand" : "Edit Brand: " + safeName) + "</h3>" + (!isNew ? '<button class="wcbat-btn wcbat-btn-secondary wcbat-btn-filter wcbat-btn-sm brand-view-products-btn" data-brand-id="' + brandId + '">View Products ' + WCBAT_CARD_ARROW + '</button>' : "") + '</div><div class="wcbat-detail-actions"><button class="wcbat-btn wcbat-btn-primary wcbat-btn-sm" id="brand-save-btn" data-id="' + btnDataId + '">' + (isNew ? "Create Brand" : "Save Brand") + "</button>" + (!isNew ? '<button class="wcbat-btn wcbat-btn-danger wcbat-btn-sm" id="brand-delete-btn" data-id="' + brandId + '">Delete Brand</button>' : "") + '<button class="wcbat-detail-close" id="brand-close-btn">&times;</button></div></div><div class="wcbat-attr-fields"><div class="wcbat-attr-field"><label>Thumbnail</label><div>' + (thumbUrl ? '<img id="brand-thumb-preview" src="' + thumbUrl + '" class="wcbat-thumb-img">' : '<div id="brand-thumb-preview" class="wcbat-thumb-placeholder">\u{1F3F7}\uFE0F</div>') + '<input type="hidden" id="brand-thumb-id" value="' + thumbId + '"><button type="button" class="wcbat-btn wcbat-btn-ghost wcbat-btn-sm" id="brand-thumb-btn">Set Image</button>' + (thumbId ? ' <button type="button" class="wcbat-btn wcbat-btn-ghost wcbat-btn-sm" id="brand-thumb-remove">Remove</button>' : "") + '</div></div><div class="wcbat-attr-field"><label>Brand Name</label><input type="text" id="brand-edit-name" value="' + safeName + '"></div><div class="wcbat-attr-field"><label>Brand Slug</label><input type="text" id="brand-edit-slug" value="' + safeSlug + '"></div><div class="wcbat-attr-field"><label>Parent Brand</label><select id="brand-edit-parent" style="width:100%;border:1px solid var(--wcbat-border);border-radius:var(--wcbat-radius);padding:6px 10px;font-size:13px;">' + parentOpts + '</select></div><div class="wcbat-attr-field wcbat-col-full"><label>Description</label><textarea id="brand-edit-desc" class="wcbat-textarea">' + safeDesc + "</textarea></div></div>";
     $panel.html(html).show();
     S.brandDirty = false;
     scrollToEl($panel);
@@ -2051,7 +2051,7 @@
       renderCatCards();
       if (callback) callback();
     }, function(err) {
-      jq_default("#cat-card-grid").html('<div class="wcbat-loading" class="wcbat-text-danger">' + err + "</div>");
+      jq_default("#cat-card-grid").html('<div class="wcbat-loading wcbat-text-danger">' + err + "</div>");
     });
   }
   /** A line under Display Type on a block-theme shop, where the choice is
@@ -2429,7 +2429,7 @@
     var displayOpts = ["default", "products", "subcategories", "both"].map(function(v) {
       return '<option value="' + v + '"' + (cat.display === v ? " selected" : "") + ">" + v.charAt(0).toUpperCase() + v.slice(1) + "</option>";
     }).join("");
-    var editHtml = '<div class="wcbat-detail-header"><div class="wcbat-flex-row-lg"><div style="display:flex;flex-direction:column;gap:2px;"><h3 class="wcbat-detail-title" style="margin:0;">Edit: ' + safeText(cat.name) + "</h3>" + (cat.term_id === S.defaultCatId ? '<span style="font-size:11px;font-weight:600;color:var(--t-variation);">Default Category</span>' : "") + '</div><button class="wcbat-btn wcbat-btn-secondary wcbat-btn-filter wcbat-btn-sm wcbat-cat-view-products-btn" data-cat-id="' + cat.term_id + '">View Products ' + WCBAT_CARD_ARROW + '</button></div>' + breadcrumbHtml + '<div class="wcbat-detail-actions"><button class="wcbat-btn wcbat-btn-primary wcbat-btn-sm" id="cat-save-btn" data-id="' + cat.term_id + '">Save</button>' + (cat.term_id === S.defaultCatId ? "" : '<button class="wcbat-btn wcbat-btn-ghost wcbat-btn-sm" id="cat-set-default-btn" data-id="' + cat.term_id + '">Set as Default</button>') + (cat.term_id === S.defaultCatId ? "" : '<button class="wcbat-btn wcbat-btn-danger wcbat-btn-sm" id="cat-delete-btn" data-id="' + cat.term_id + '">Delete</button>') + '<button class="wcbat-detail-close" id="cat-close-btn">&times;</button></div></div><div class="wcbat-attr-fields"><div class="wcbat-attr-field" style="grid-row:span 2;"><label>Thumbnail</label><div>' + thumbHtml + '<input type="hidden" id="cat-thumb-id" value="' + cat.thumb_id + '"><button type="button" class="wcbat-btn wcbat-btn-ghost wcbat-btn-sm" id="cat-thumb-btn">Set Image</button>' + (cat.thumb_id ? ' <button type="button" class="wcbat-btn wcbat-btn-ghost wcbat-btn-sm" id="cat-thumb-remove">Remove</button>' : "") + '</div></div><div class="wcbat-attr-field"><label>Name</label><input type="text" id="cat-edit-name" value="' + safeText(cat.name) + '"></div><div class="wcbat-attr-field"><label>Slug</label><input type="text" id="cat-edit-slug" value="' + safeText(cat.slug) + '"></div><div class="wcbat-attr-field"><label>Display Type</label><select id="cat-edit-display" class="wcbat-select" style="width:100%;">' + displayOpts + '</select>' + catDisplayTypeNote() + '</div><div class="wcbat-attr-field"><label>Parent Category</label><select id="cat-edit-parent" class="wcbat-select" style="width:100%;">' + buildParentCatOptions(cat.parent, cat.term_id) + '</select></div><div class="wcbat-attr-field" class="wcbat-col-full"><label>Description</label><textarea id="cat-edit-desc" class="wcbat-textarea">' + safeText(cat.description) + "</textarea></div></div>";
+    var editHtml = '<div class="wcbat-detail-header"><div class="wcbat-flex-row-lg"><div style="display:flex;flex-direction:column;gap:2px;"><h3 class="wcbat-detail-title" style="margin:0;">Edit: ' + safeText(cat.name) + "</h3>" + (cat.term_id === S.defaultCatId ? '<span style="font-size:11px;font-weight:600;color:var(--t-variation);">Default Category</span>' : "") + '</div><button class="wcbat-btn wcbat-btn-secondary wcbat-btn-filter wcbat-btn-sm wcbat-cat-view-products-btn" data-cat-id="' + cat.term_id + '">View Products ' + WCBAT_CARD_ARROW + '</button></div>' + breadcrumbHtml + '<div class="wcbat-detail-actions"><button class="wcbat-btn wcbat-btn-primary wcbat-btn-sm" id="cat-save-btn" data-id="' + cat.term_id + '">Save</button>' + (cat.term_id === S.defaultCatId ? "" : '<button class="wcbat-btn wcbat-btn-ghost wcbat-btn-sm" id="cat-set-default-btn" data-id="' + cat.term_id + '">Set as Default</button>') + (cat.term_id === S.defaultCatId ? "" : '<button class="wcbat-btn wcbat-btn-danger wcbat-btn-sm" id="cat-delete-btn" data-id="' + cat.term_id + '">Delete</button>') + '<button class="wcbat-detail-close" id="cat-close-btn">&times;</button></div></div><div class="wcbat-attr-fields"><div class="wcbat-attr-field" style="grid-row:span 2;"><label>Thumbnail</label><div>' + thumbHtml + '<input type="hidden" id="cat-thumb-id" value="' + cat.thumb_id + '"><button type="button" class="wcbat-btn wcbat-btn-ghost wcbat-btn-sm" id="cat-thumb-btn">Set Image</button>' + (cat.thumb_id ? ' <button type="button" class="wcbat-btn wcbat-btn-ghost wcbat-btn-sm" id="cat-thumb-remove">Remove</button>' : "") + '</div></div><div class="wcbat-attr-field"><label>Name</label><input type="text" id="cat-edit-name" value="' + safeText(cat.name) + '"></div><div class="wcbat-attr-field"><label>Slug</label><input type="text" id="cat-edit-slug" value="' + safeText(cat.slug) + '"></div><div class="wcbat-attr-field"><label>Display Type</label><select id="cat-edit-display" class="wcbat-select" style="width:100%;">' + displayOpts + '</select>' + catDisplayTypeNote() + '</div><div class="wcbat-attr-field"><label>Parent Category</label><select id="cat-edit-parent" class="wcbat-select" style="width:100%;">' + buildParentCatOptions(cat.parent, cat.term_id) + '</select></div><div class="wcbat-attr-field wcbat-col-full"><label>Description</label><textarea id="cat-edit-desc" class="wcbat-textarea">' + safeText(cat.description) + "</textarea></div></div>";
     /* A category with more than a handful of subcategories was a wall to read
        through. The box narrows the list as you type. The subcategories are
        already here, so this is the list in front of you being narrowed, not
@@ -2545,7 +2545,7 @@
     var displayOpts = ["default", "products", "subcategories", "both"].map(function(v) {
       return '<option value="' + v + '">' + v.charAt(0).toUpperCase() + v.slice(1) + "</option>";
     }).join("");
-    $panel.html('<div class="wcbat-detail-header">' + breadcrumbHtml + '<h3 class="wcbat-detail-title">' + (parentId ? "Add Subcategory to: " + safeText(parentName) : "Create Category") + '</h3><div class="wcbat-detail-actions"><button class="wcbat-btn wcbat-btn-primary wcbat-btn-sm" id="cat-create-save-btn" data-parent="' + (parentId || 0) + '">Create</button><button class="wcbat-detail-close" id="cat-close-btn">&times;</button></div></div><div class="wcbat-attr-fields"><div class="wcbat-attr-field" style="grid-row:span 2;"><label>Thumbnail</label><div><div id="cat-thumb-preview" class="wcbat-thumb-placeholder">\u{1F4C1}</div><input type="hidden" id="cat-thumb-id" value="0"><button type="button" class="wcbat-btn wcbat-btn-ghost wcbat-btn-sm" id="cat-thumb-btn">Set Image</button></div></div><div class="wcbat-attr-field"><label>Name</label><input type="text" id="cat-edit-name" placeholder="Category name"></div><div class="wcbat-attr-field"><label>Slug</label><input type="text" id="cat-edit-slug" placeholder="auto-generated"></div><div class="wcbat-attr-field"><label>Display Type</label><select id="cat-edit-display" class="wcbat-select" style="width:100%;">' + displayOpts + '</select>' + catDisplayTypeNote() + '</div><div class="wcbat-attr-field"><label>Parent Category</label><select id="cat-edit-parent" class="wcbat-select" style="width:100%;">' + buildParentCatOptions(parentId, 0) + '</select></div><div class="wcbat-attr-field" class="wcbat-col-full"><label>Description</label><textarea id="cat-edit-desc" class="wcbat-textarea" placeholder="Optional description"></textarea></div></div>').show();
+    $panel.html('<div class="wcbat-detail-header">' + breadcrumbHtml + '<h3 class="wcbat-detail-title">' + (parentId ? "Add Subcategory to: " + safeText(parentName) : "Create Category") + '</h3><div class="wcbat-detail-actions"><button class="wcbat-btn wcbat-btn-primary wcbat-btn-sm" id="cat-create-save-btn" data-parent="' + (parentId || 0) + '">Create</button><button class="wcbat-detail-close" id="cat-close-btn">&times;</button></div></div><div class="wcbat-attr-fields"><div class="wcbat-attr-field" style="grid-row:span 2;"><label>Thumbnail</label><div><div id="cat-thumb-preview" class="wcbat-thumb-placeholder">\u{1F4C1}</div><input type="hidden" id="cat-thumb-id" value="0"><button type="button" class="wcbat-btn wcbat-btn-ghost wcbat-btn-sm" id="cat-thumb-btn">Set Image</button></div></div><div class="wcbat-attr-field"><label>Name</label><input type="text" id="cat-edit-name" placeholder="Category name"></div><div class="wcbat-attr-field"><label>Slug</label><input type="text" id="cat-edit-slug" placeholder="auto-generated"></div><div class="wcbat-attr-field"><label>Display Type</label><select id="cat-edit-display" class="wcbat-select" style="width:100%;">' + displayOpts + '</select>' + catDisplayTypeNote() + '</div><div class="wcbat-attr-field"><label>Parent Category</label><select id="cat-edit-parent" class="wcbat-select" style="width:100%;">' + buildParentCatOptions(parentId, 0) + '</select></div><div class="wcbat-attr-field wcbat-col-full"><label>Description</label><textarea id="cat-edit-desc" class="wcbat-textarea" placeholder="Optional description"></textarea></div></div>').show();
     jq_default("#cat-thumb-btn").on("click", function() {
       openCatThumbPicker(jq_default("#cat-thumb-id").val(), jq_default("#cat-thumb-preview").attr("src") || "", function(id, url) {
         if (id && url) {
@@ -4295,6 +4295,10 @@
            an up arrow on first load, as if it were oldest first. Clicking
            still swaps them the same way. */
         thead += sortTh("Date", "date-asc", "date-desc", style);
+      } else if (col.key === "categories") {
+        /* Named so the stylesheet and the measuring can find it without
+           going by the word in the header. */
+        thead += '<th class="wcbat-cat-th" style="' + style + '">' + col.label + "</th>";
       } else if (S.COL_FILTER_DEFS[col.key]) {
         thead += filterTh(col.key, col.label, style);
       } else {
@@ -4388,7 +4392,7 @@
       $gallTd.append($gallBtn);
       if (colVisible("gallery")) $tr.append($gallTd);
       if (colVisible("categories")) {
-        var $catTd = jq_default('<td data-col="categories" style="max-width:180px;"></td>');
+        var $catTd = jq_default('<td data-col="categories"></td>');
         var $catWrap = jq_default('<div class="wcbat-flex-row-sm"></div>');
         var $catText = jq_default('<span class="wcbat-cat-names" style="font-size:12px;flex:1;word-break:break-word;line-height:1.6;"></span>');
         if (row.category_names && row.category_names.length) {
@@ -5006,7 +5010,75 @@
     /* No mirrored scrollbar: the grid's own container scrolls sideways now. */
     jq_default("#pm-grid-area .wcbat-table-wrap").scrollLeft(0);
     updatePmSelectionButtons();
+    pmFitCatColumn();
   }
+
+  /* How much of a one-line category list to give the column. A little over
+     half, because the text breaks at a space rather than exactly halfway. */
+  var PM_CAT_TWO_LINE = 0.56;
+  /* Never narrower than the column used to be. */
+  var PM_CAT_MIN_W = 180;
+
+  /** The width a category list would take if nothing wrapped it. */
+  function pmCatOneLineWidth(el) {
+    var clone = el.cloneNode(true);
+    var style = window.getComputedStyle(el);
+    clone.style.position = "absolute";
+    clone.style.visibility = "hidden";
+    clone.style.whiteSpace = "nowrap";
+    clone.style.fontSize = style.fontSize;
+    clone.style.fontFamily = style.fontFamily;
+    clone.style.letterSpacing = style.letterSpacing;
+    document.body.appendChild(clone);
+    var w = clone.offsetWidth;
+    document.body.removeChild(clone);
+    return w;
+  }
+
+  /* Widen the Categories column until the longest list on the page fits on
+     two lines. A product in six categories used to wrap onto six lines and
+     pull its whole row down with it; nothing is cut short to fix that, the
+     column is simply given the room. */
+  function pmFitCatColumn() {
+    var table = document.querySelector("#pm-grid-area .wcbat-table-wrap table");
+    if (!table) return;
+    var lists = table.querySelectorAll('td[data-col="categories"] .wcbat-cat-names');
+    if (!lists.length) {
+      table.style.removeProperty("--wcbat-cat-w");
+      return;
+    }
+    var longest = 0;
+    Array.prototype.forEach.call(lists, function(list) {
+      longest = Math.max(longest, pmCatOneLineWidth(list));
+    });
+    var cell = lists[0].closest("td");
+    var cellStyle = window.getComputedStyle(cell);
+    var padding = parseFloat(cellStyle.paddingLeft) + parseFloat(cellStyle.paddingRight);
+    var wrap = lists[0].parentElement;
+    var button = wrap ? wrap.querySelector("button, .wcbat-btn") : null;
+    var buttonWidth = button ? button.offsetWidth : 0;
+    var gap = wrap ? (parseFloat(window.getComputedStyle(wrap).columnGap) || 8) : 8;
+    var width = Math.max(
+      PM_CAT_MIN_W,
+      Math.ceil(longest * PM_CAT_TWO_LINE) + buttonWidth + gap + padding
+    );
+    table.style.setProperty("--wcbat-cat-w", width + "px");
+  }
+
+  /* A typeface arriving late, or the window changing shape, changes how wide
+     the same words are. */
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function() {
+      pmFitCatColumn();
+    });
+  }
+  jq_default(window).on("resize.pmcatcol", (function() {
+    var timer = null;
+    return function() {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(pmFitCatColumn, 150);
+    };
+  })());
 
   // src/misc.js
   function buildListRow(opts) {
@@ -5227,7 +5299,7 @@
       });
     }
     renderFiles();
-    var $addBtn = jq_default('<button type="button" class="wcbat-btn wcbat-btn-secondary wcbat-btn-sm" class="wcbat-mt8">+ Add File</button>');
+    var $addBtn = jq_default('<button type="button" class="wcbat-btn wcbat-btn-secondary wcbat-btn-sm wcbat-mt8">+ Add File</button>');
     $addBtn.on("click", function() {
       files.push({
         id: "",
@@ -7786,9 +7858,9 @@
     var unfinished = wcbatUnsavedOn(S.activeTab);
     if (unfinished) {
       pmConfirm(unfinished + " Leave and discard them?", {
-        title: "Unsaved changes",
+        title: "Unsaved Changes",
         confirmLabel: "Discard",
-        cancelLabel: "Keep editing",
+        cancelLabel: "Keep Editing",
         danger: true
       }).then(function (ok) {
         if (ok) switchToProductManagerNow(filters);
@@ -8239,7 +8311,7 @@
     jq_default("#tag-card-grid .wcbat-card").removeClass("is-active");
     jq_default('#tag-card-grid .wcbat-card[data-id="' + tagId + '"]').addClass("is-active");
     var $panel = jq_default("#tag-detail-panel");
-    var html = '<div class="wcbat-detail-header"><div class="wcbat-flex-row-lg"><h3 class="wcbat-detail-title">Edit Tag: ' + safeText(tag.name) + '</h3><button class="wcbat-btn wcbat-btn-secondary wcbat-btn-filter wcbat-btn-sm tag-view-products-btn" data-tag-id="' + tag.term_id + '">View Products ' + WCBAT_CARD_ARROW + '</button></div><div class="wcbat-detail-actions"><button class="wcbat-btn wcbat-btn-primary wcbat-btn-sm" id="tag-save-btn" data-id="' + tag.term_id + '">Save Tag</button><button class="wcbat-btn wcbat-btn-danger wcbat-btn-sm" id="tag-delete-btn" data-id="' + tag.term_id + '">Delete Tag</button><button class="wcbat-detail-close" id="tag-close-btn">&times;</button></div></div><div class="wcbat-attr-fields"><div class="wcbat-attr-field"><label>Tag Name</label><input type="text" id="tag-edit-name" value="' + safeText(tag.name) + '"></div><div class="wcbat-attr-field"><label>Tag Slug</label><input type="text" id="tag-edit-slug" value="' + safeText(tag.slug) + '"></div><div class="wcbat-attr-field" class="wcbat-col-full"><label>Description</label><textarea id="tag-edit-desc" class="wcbat-textarea">' + safeText(tag.description) + '</textarea></div></div><div style="font-size:13px;color:var(--wcbat-text-muted);margin-top:8px;">Used in <strong>' + tag.count + "</strong> product" + (tag.count !== 1 ? "s" : "") + ".</div>";
+    var html = '<div class="wcbat-detail-header"><div class="wcbat-flex-row-lg"><h3 class="wcbat-detail-title">Edit Tag: ' + safeText(tag.name) + '</h3><button class="wcbat-btn wcbat-btn-secondary wcbat-btn-filter wcbat-btn-sm tag-view-products-btn" data-tag-id="' + tag.term_id + '">View Products ' + WCBAT_CARD_ARROW + '</button></div><div class="wcbat-detail-actions"><button class="wcbat-btn wcbat-btn-primary wcbat-btn-sm" id="tag-save-btn" data-id="' + tag.term_id + '">Save Tag</button><button class="wcbat-btn wcbat-btn-danger wcbat-btn-sm" id="tag-delete-btn" data-id="' + tag.term_id + '">Delete Tag</button><button class="wcbat-detail-close" id="tag-close-btn">&times;</button></div></div><div class="wcbat-attr-fields"><div class="wcbat-attr-field"><label>Tag Name</label><input type="text" id="tag-edit-name" value="' + safeText(tag.name) + '"></div><div class="wcbat-attr-field"><label>Tag Slug</label><input type="text" id="tag-edit-slug" value="' + safeText(tag.slug) + '"></div><div class="wcbat-attr-field wcbat-col-full"><label>Description</label><textarea id="tag-edit-desc" class="wcbat-textarea">' + safeText(tag.description) + '</textarea></div></div><div style="font-size:13px;color:var(--wcbat-text-muted);margin-top:8px;">Used in <strong>' + tag.count + "</strong> product" + (tag.count !== 1 ? "s" : "") + ".</div>";
     $panel.html(html).show();
     S.tagDirty = false;
     scrollToEl($panel);
@@ -8251,7 +8323,7 @@
     S.activeTagCard = 0;
     jq_default("#tag-card-grid .wcbat-card").removeClass("is-active");
     var $panel = jq_default("#tag-detail-panel");
-    var html = '<div class="wcbat-detail-header"><h3 class="wcbat-detail-title">Create Tag</h3><div class="wcbat-detail-actions"><button class="wcbat-btn wcbat-btn-primary wcbat-btn-sm" id="tag-save-btn" data-id="0">Create Tag</button><button class="wcbat-detail-close" id="tag-close-btn">&times;</button></div></div><div class="wcbat-attr-fields"><div class="wcbat-attr-field"><label>Tag Name</label><input type="text" id="tag-edit-name" placeholder="Tag name"></div><div class="wcbat-attr-field"><label>Tag Slug</label><input type="text" id="tag-edit-slug" placeholder="auto-generated"></div><div class="wcbat-attr-field" class="wcbat-col-full"><label>Description</label><textarea id="tag-edit-desc" class="wcbat-textarea" placeholder="Optional description"></textarea></div></div>';
+    var html = '<div class="wcbat-detail-header"><h3 class="wcbat-detail-title">Create Tag</h3><div class="wcbat-detail-actions"><button class="wcbat-btn wcbat-btn-primary wcbat-btn-sm" id="tag-save-btn" data-id="0">Create Tag</button><button class="wcbat-detail-close" id="tag-close-btn">&times;</button></div></div><div class="wcbat-attr-fields"><div class="wcbat-attr-field"><label>Tag Name</label><input type="text" id="tag-edit-name" placeholder="Tag name"></div><div class="wcbat-attr-field"><label>Tag Slug</label><input type="text" id="tag-edit-slug" placeholder="auto-generated"></div><div class="wcbat-attr-field wcbat-col-full"><label>Description</label><textarea id="tag-edit-desc" class="wcbat-textarea" placeholder="Optional description"></textarea></div></div>';
     $panel.html(html).show();
     S.tagDirty = false;
     scrollToEl($panel);
@@ -10088,9 +10160,9 @@
     clearTimeout(S.fmFilterSearchTimer);
     var hasEdits = Object.keys(S.fmFilterDirty || {}).length > 0;
     pmConfirmIf(hasEdits, "You have filter changes that are not saved. Discard them and show the list?", {
-      title: "Unsaved changes",
+      title: "Unsaved Changes",
       confirmLabel: "Discard",
-      cancelLabel: "Keep editing"
+      cancelLabel: "Keep Editing"
     }).then(function(ok) {
       if (!ok) {
         var shown = S.fmShownFilterBar || { search: "", type: "", perPage: "" };
@@ -10427,7 +10499,7 @@
     // Loading filters from an attribute template needs Templates, a paid screen.
     var tmplPickerHtml = "";
     /*! <fs_premium_only> */
-    if (S.isPro) tmplPickerHtml = '<div class="wcbat-attr-fields"><div class="wcbat-attr-field" style="flex:1;"><label class="wcbat-label">LOAD FROM TEMPLATE <span style="font-weight:400;color:var(--wcbat-text-muted)">(optional)</span></label><div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;"><input type="hidden" id="fm-s-tmpl-sel" value=""><button type="button" id="fm-s-tmpl-btn" class="wcbat-select-lg" style="width:400px;text-align:left;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--paper);"><span id="fm-s-tmpl-label">\u2014 Select a template \u2014</span><span style="color:var(--ink-soft);">\u25BE</span></button></div><div id="fm-s-tmpl-attrs" class="wcbat-hidden"><div class="wcbat-fm-tmpl-attr-list" id="fm-s-tmpl-attr-list"></div><button class="wcbat-btn wcbat-btn-secondary wcbat-btn-sm" id="fm-s-tmpl-add-btn" class="wcbat-mt8">+ Add Selected to Set</button></div></div></div>';
+    if (S.isPro) tmplPickerHtml = '<div class="wcbat-attr-fields"><div class="wcbat-attr-field" style="flex:1;"><label class="wcbat-label">LOAD FROM TEMPLATE <span style="font-weight:400;color:var(--wcbat-text-muted)">(optional)</span></label><div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;"><input type="hidden" id="fm-s-tmpl-sel" value=""><button type="button" id="fm-s-tmpl-btn" class="wcbat-select-lg" style="width:400px;text-align:left;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--paper);"><span id="fm-s-tmpl-label">\u2014 Select a template \u2014</span><span style="color:var(--ink-soft);">\u25BE</span></button></div><div id="fm-s-tmpl-attrs" class="wcbat-hidden"><div class="wcbat-fm-tmpl-attr-list" id="fm-s-tmpl-attr-list"></div><button class="wcbat-btn wcbat-btn-secondary wcbat-btn-sm wcbat-mt8" id="fm-s-tmpl-add-btn">+ Add Selected to Set</button></div></div></div>';
     /*! </fs_premium_only> */
     var html = '<div class="wcbat-detail-header"><h3 class="wcbat-detail-title">' + (isNew ? "Create Filter Widget" : "Edit Filter Widget: " + safeText(s.name)) + '</h3><div class="wcbat-detail-actions"><button class="wcbat-btn wcbat-btn-primary wcbat-btn-sm" id="fm-set-save-btn" data-id="' + (s ? s.id : "") + '">' + (isNew ? "Create Filter Widget" : "Save Filter Widget") + "</button>" + (!isNew ? '<button class="wcbat-btn wcbat-btn-danger wcbat-btn-sm" id="fm-set-delete-btn" data-id="' + s.id + '">Delete</button>' : "") + '<button class="wcbat-detail-close" id="fm-set-close-btn">&times;</button></div></div><div class="fm-set-cols"><div class="fm-set-col"><div class="wcbat-attr-fields"><div class="wcbat-attr-field"><label class="wcbat-label">FILTER WIDGET NAME</label><input type="text" id="fm-s-name" class="wcbat-input" value="' + (s ? safeText(s.name) : "") + '" placeholder="e.g. Laptop Filters"></div></div><div class="wcbat-attr-fields"><div class="wcbat-attr-field" style="flex:1;"><label class="wcbat-label">FILTERS IN THIS WIDGET <span style="font-weight:400;color:var(--wcbat-text-muted)">(drag to reorder)</span></label><div class="fm-s-group-selected-bar" id="fm-s-sel-bar"><span id="fm-s-sel-count">0 selected</span><button class="wcbat-btn wcbat-btn-primary wcbat-btn-sm" id="fm-s-group-sel-btn">Move</button><button class="wcbat-btn wcbat-btn-secondary wcbat-btn-sm wcbat-hidden" id="fm-s-ungroup-btn">Ungroup</button><button class="wcbat-btn wcbat-btn-ghost wcbat-btn-sm" id="fm-s-sel-clear">Clear</button></div><div id="fm-s-assigned"></div></div></div></div><div class="fm-set-col fm-set-col--side"><div class="wcbat-attr-fields"><div class="wcbat-attr-field" style="flex:1;"><label class="wcbat-label">ADD A FILTER</label><div class="wcbat-flex-row"><button class="wcbat-btn wcbat-btn-secondary wcbat-btn-sm fm-sadd-trigger" id="fm-s-add-trigger" type="button" style="width:100%;height:40px;box-sizing:border-box;">\u2014 Add a filter \u2014 &#9660;</button></div></div></div>' + tmplPickerHtml + '<div class="wcbat-attr-fields"><div class="wcbat-attr-field" style="flex:1;"><label class="wcbat-label">RESET BUTTON</label><div style="display:flex;align-items:flex-end;gap:16px;"><div style="display:flex;flex-direction:column;gap:4px;flex-shrink:0;"><span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--wcbat-text-muted);">On / Off</span><div style="height:32px;display:flex;align-items:center;"><label class="wcbat-fm-toggle"><input type="checkbox" id="fm-s-reset"' + (s && s.show_reset ? " checked" : "") + '><span class="wcbat-fm-toggle-slider"></span></label></div></div><div style="display:flex;flex-direction:column;gap:4px;flex:1;min-width:0;"><span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--wcbat-text-muted);">Button Text</span><input type="text" id="fm-s-reset-text" class="wcbat-input" style="height:32px;box-sizing:border-box;" value="' + (s ? safeText(s.reset_text) : "Reset Filters") + '"></div></div></div></div>' + (shortcodeHtml ? '<div class="wcbat-attr-fields"><div class="wcbat-attr-field">' + shortcodeHtml + "</div></div>" : "") + "</div></div>";
     var $panel = jq_default("#fm-set-detail");
@@ -10947,7 +11019,7 @@
           $input = jq_default('<div class="wcbat-fm-svg-wrap"></div>');
           var $preview = jq_default('<div class="wcbat-fm-svg-preview">' + (val ? '<img src="' + safeText(val) + '" style="width:20px;height:20px;">' : '<span style="color:var(--wcbat-text-muted);font-size:11px;">None</span>') + "</div>");
           var $uploadBtn = jq_default('<button class="wcbat-btn wcbat-btn-ghost wcbat-btn-sm" type="button">Upload SVG</button>');
-          var $clearBtn = jq_default('<button class="wcbat-btn wcbat-btn-ghost wcbat-btn-sm" type="button" class="wcbat-text-danger">\u2715</button>');
+          var $clearBtn = jq_default('<button class="wcbat-btn wcbat-btn-ghost wcbat-btn-sm wcbat-text-danger" type="button">\u2715</button>');
           var svgKey = ctrl.key;
           $uploadBtn.on("click", function() {
             var frame = wp.media({
@@ -11174,9 +11246,9 @@
   function closeGridEditor(force) {
     var hasCached = Object.keys(S.gridPageCache).length > 0;
     return pmConfirmIf(!force && (S.gridDirty || hasCached), "You have unsaved changes in the grid. Close and discard them?", {
-      title: "Unsaved changes",
+      title: "Unsaved Changes",
       confirmLabel: "Discard",
-      cancelLabel: "Keep editing"
+      cancelLabel: "Keep Editing"
     }).then(function (ok) {
         if (!ok) return false;
         S.gridPageCache = {};
@@ -11423,7 +11495,7 @@
       var $up = jq_default('<button class="wcbat-btn wcbat-btn-sm wcbat-bl-move-up" data-idx="' + i + '" title="Move up"' + (i === 0 ? " disabled" : "") + ">\u2191</button>");
       var $down = jq_default('<button class="wcbat-btn wcbat-btn-sm wcbat-bl-move-down" data-idx="' + i + '" title="Move down"' + (i === S.blChainRules.length - 1 ? " disabled" : "") + ">\u2193</button>");
       var $edit = jq_default('<button class="wcbat-btn wcbat-btn-secondary wcbat-btn-sm wcbat-bl-edit-rule" data-idx="' + i + '">Edit</button>');
-      var $del = jq_default('<button class="wcbat-btn wcbat-btn-sm wcbat-bl-delete-rule" data-idx="' + i + '" class="wcbat-btn-danger-outline">Delete</button>');
+      var $del = jq_default('<button class="wcbat-btn wcbat-btn-sm wcbat-bl-delete-rule wcbat-btn-danger-outline" data-idx="' + i + '">Delete</button>');
       $actions.append($up).append($down).append($edit).append($del);
       $row.append($handle).append($tokens).append($actions);
       $chain.append($row);
@@ -13358,9 +13430,9 @@
           var varDiscAmt = p.discount_amount || "";
           var stockSummary = p.stock_summary || "\u2014";
           $tr.append('<td><span class="wcbat-price-range">' + safeText(priceRange) + "</span></td>");
-          $tr.append('<td><span class="wcbat-price-range sale-var-sale-range" class="wcbat-price-range">' + safeText(salePriceRange) + "</span></td>");
-          $tr.append('<td><span class="sale-var-disc-pct" class="wcbat-price-range">' + safeText(varDiscPct ? varDiscPct + "%" : "") + "</span></td>");
-          $tr.append('<td><span class="sale-var-disc-amt" class="wcbat-price-range">' + safeText(varDiscAmt) + "</span></td>");
+          $tr.append('<td><span class="wcbat-price-range sale-var-sale-range">' + safeText(salePriceRange) + "</span></td>");
+          $tr.append('<td><span class="sale-var-disc-pct wcbat-price-range">' + safeText(varDiscPct ? varDiscPct + "%" : "") + "</span></td>");
+          $tr.append('<td><span class="sale-var-disc-amt wcbat-price-range">' + safeText(varDiscAmt) + "</span></td>");
           var $varStockIn = jq_default('<input class="wcbat-pm-input" type="number" min="0" step="1" data-field="stock_qty" placeholder="\u2014" style="min-width:60px;">').val(p.stock_qty !== null && p.stock_qty !== void 0 ? p.stock_qty : "");
           if (p.manage_stock !== "yes") {
             $varStockIn.prop("disabled", true).css("opacity", "0.35");
@@ -14898,9 +14970,9 @@
          to open on Leave, so an Enter pressed out of habit threw the work
          away before the question had been read. */
       pmConfirmIf(!!leavingMessage, leavingMessage, {
-        title: "Unsaved changes",
+        title: "Unsaved Changes",
         confirmLabel: "Discard",
-        cancelLabel: "Keep editing",
+        cancelLabel: "Keep Editing",
         danger: true
       }).then(function (ok) {
         if (!ok) return;
@@ -15439,7 +15511,7 @@
          out that sits inside the panel was the one way out that threw the work
          away without a word. The flag is let go of once Discard is pressed,
          which is where letting go belongs. */
-      pmConfirmIf(S.attrDirty || attrHasPending(), "You have unsaved changes. Close and discard them?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep editing" }).then(function (ok) {
+      pmConfirmIf(S.attrDirty || attrHasPending(), "You have unsaved changes. Close and discard them?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep Editing" }).then(function (ok) {
         if (!ok) return;
         S.attrDirty = false;
         S.activeAttrCard = null;
@@ -15756,9 +15828,9 @@
          with no question at all, so a name typed over and not saved was simply
          gone - on Tags, Brands and Categories alike. */
       pmConfirmIf(S.activeTagCard !== null && S.tagDirty, "Unsaved changes. Discard?", {
-        title: "Unsaved changes",
+        title: "Unsaved Changes",
         confirmLabel: "Discard",
-        cancelLabel: "Keep editing"
+        cancelLabel: "Keep Editing"
       }).then(function (go) {
         if (!go) return;
         S.tagDirty = false;
@@ -15780,9 +15852,9 @@
          with no question at all, so a name typed over and not saved was simply
          gone - on Tags, Brands and Categories alike. */
       pmConfirmIf(S.activeBrandCard !== null && S.brandDirty, "Unsaved changes. Discard?", {
-        title: "Unsaved changes",
+        title: "Unsaved Changes",
         confirmLabel: "Discard",
-        cancelLabel: "Keep editing"
+        cancelLabel: "Keep Editing"
       }).then(function (go) {
         if (!go) return;
         S.brandDirty = false;
@@ -15846,9 +15918,9 @@
          no question at all, so a name typed over and not saved was simply
          gone. */
       pmConfirmIf(S.catDirty, "Unsaved changes. Discard?", {
-        title: "Unsaved changes",
+        title: "Unsaved Changes",
         confirmLabel: "Discard",
-        cancelLabel: "Keep editing"
+        cancelLabel: "Keep Editing"
       }).then(function (go) {
         if (!go) return;
         S.catDirty = false;
@@ -16515,7 +16587,7 @@
       }, 10);
     });
     $2(document).on("click", "#tmpl-close-btn", function() {
-      pmConfirmIf(S.tmplDirty, "You have unsaved changes. Discard them and close?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep editing" }).then(function (ok) {
+      pmConfirmIf(S.tmplDirty, "You have unsaved changes. Discard them and close?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep Editing" }).then(function (ok) {
         if (!ok) return;
         S.activeTmplCard = null;
         S.tmplDirty = false;
@@ -16531,9 +16603,9 @@
          runs - closing the open card means it is the active one, so the null
          test covers that branch too. */
       pmConfirmIf(S.activeTmplCard !== null && S.tmplDirty, "You have unsaved changes in the template editor. Discard them?", {
-        title: "Unsaved changes",
+        title: "Unsaved Changes",
         confirmLabel: "Discard",
-        cancelLabel: "Keep editing"
+        cancelLabel: "Keep Editing"
       }).then(function (ok) {
         if (!ok) return;
           if (S.activeTmplCard === id) {
@@ -16622,7 +16694,7 @@
       }.bind(this));
     });
     $2("#create-template-btn").on("click", function() {
-      pmConfirmIf(S.activeTmplCard !== null && S.tmplDirty, "You have unsaved changes. Discard them?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep editing" }).then(function (ok) {
+      pmConfirmIf(S.activeTmplCard !== null && S.tmplDirty, "You have unsaved changes. Discard them?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep Editing" }).then(function (ok) {
         if (!ok) return;
         resetGridSelectors();
         S.activeTmplCard = 0;
@@ -16710,9 +16782,9 @@
     $2("#load-grid").on("click", function() {
       pmConfirmIf(S.gridDirty || Object.keys(S.gridPageCache || {}).length > 0,
         "This grid has unsaved changes. Load a new one and discard them?", {
-          title: "Unsaved changes",
+          title: "Unsaved Changes",
           confirmLabel: "Load the grid",
-          cancelLabel: "Keep editing"
+          cancelLabel: "Keep Editing"
         }).then(function (ok) {
         if (!ok) return;
         S.gridPageCache = {};
@@ -17976,7 +18048,9 @@
     }, {
       key: "categories",
       label: "Categories",
-      style: "min-width:120px;max-width:200px;white-space:normal;"
+      /* No width typed in here any more: pmFitCatColumn works out what the
+         column needs and sets it through --wcbat-cat-w. */
+      style: "white-space:normal;"
     }, {
       key: "regular_price",
       label: "Regular Price",
@@ -21470,11 +21544,11 @@
         var $note = $2(`<p style="font-size:12px;color:var(--wcbat-text-muted);margin:0 0 10px;">Fields will be created if they don't exist, or updated if they do. Only ticked rows are applied.</p>`);
         var $bcfRows = $2('<div class="wcbat-bcf-rows"></div>');
         var addProg = bcfMakeProg();
-        var $addFieldBtn = $2('<button type="button" class="wcbat-btn wcbat-btn-secondary wcbat-btn-sm" class="wcbat-mt8">+ Add Field</button>');
+        var $addFieldBtn = $2('<button type="button" class="wcbat-btn wcbat-btn-secondary wcbat-btn-sm wcbat-mt8">+ Add Field</button>');
         $addFieldBtn.on("click", function() {
           $bcfRows.append(bcfMakeRow());
         });
-        var $saveFieldsBtn = $2('<button type="button" class="wcbat-btn wcbat-btn-ghost wcbat-btn-sm" class="wcbat-mt8">Save Fields</button>');
+        var $saveFieldsBtn = $2('<button type="button" class="wcbat-btn wcbat-btn-ghost wcbat-btn-sm wcbat-mt8">Save Fields</button>');
         var $saveStatus = $2('<span style="font-size:12px;color:var(--wcbat-text-muted);margin-left:8px;"></span>');
         $saveFieldsBtn.on("click", function() {
           var rows = getAllBcfRows();
@@ -23272,7 +23346,7 @@
         $logicBody.append($2('<div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;"></div>').append('<label class="wcbat-label" style="margin:0;">BATCH SIZE</label>').append('<input type="number" class="wcbat-input-sm" id="bu-bl-batch-size" min="1" max="500" value="50" style="width:70px;">'));
         var $savedSel = $2('<select class="wcbat-bl-saved-select"></select>');
         var $loadBtn = $2('<button class="wcbat-btn wcbat-btn-secondary wcbat-btn-sm">Load</button>');
-        var $delChain = $2('<button class="wcbat-btn wcbat-btn-sm" class="wcbat-btn-danger-outline">Delete</button>');
+        var $delChain = $2('<button class="wcbat-btn wcbat-btn-sm wcbat-btn-danger-outline">Delete</button>');
         var $newChain = $2('<button class="wcbat-btn wcbat-btn-sm wcbat-btn-ghost" id="bu-bl-new-btn">New</button>');
         var $savedRow = $2('<div class="wcbat-bl-saved-bar"></div>').append($savedSel).append($loadBtn).append($delChain).append($newChain);
         var $targetParent = $2('<button class="wcbat-btn wcbat-btn-sm wcbat-btn-primary wcbat-bl-target-btn" type="button">Parent Product</button>');
@@ -23425,7 +23499,7 @@
         var $paletteCard = $2('<div class="wcbat-panel-card"></div>').append('<div class="wcbat-panel-head">Build Rule</div>').append($2('<div class="wcbat-bl-palette-body"></div>').append($palette));
         var $preview = $2('<div class="wcbat-bl-preview" id="bu-bl-preview"></div>');
         var $addRuleBtn = $2('<button class="wcbat-btn wcbat-btn-primary wcbat-btn-sm" id="bu-bl-add-rule-btn">+ Add Rule to Chain</button>');
-        var $clearRuleBtn = $2('<button class="wcbat-btn wcbat-btn-sm" class="wcbat-btn-danger-outline">Clear</button>');
+        var $clearRuleBtn = $2('<button class="wcbat-btn wcbat-btn-sm wcbat-btn-danger-outline">Clear</button>');
         var $curWrap = $2('<div class="wcbat-panel-card wcbat-bl-preview-wrap"></div>').append('<div class="wcbat-panel-head">Current Rule</div>').append($2('<div class="wcbat-panel-body wcbat-bl-cur-body"></div>').append($preview).append($2('<div class="wcbat-bl-preview-btns"></div>').append($addRuleBtn).append($clearRuleBtn)));
         blRenderCurrentTokens($preview, $addRuleBtn);
         var $chain = $2('<div class="wcbat-bl-chain"></div>');
@@ -24532,7 +24606,7 @@
             "Remove everything when the plugin is deleted",
             "gs-remove-data",
             data.remove_data_on_delete,
-            "Off, your saved templates, sale campaigns, import history, column layouts and settings stay in the store, so reinstalling picks up where you left off. On, deleting the plugin from the Plugins screen clears all of it. Your products, categories, brands, tags, attributes and images are never touched either way."
+            "<span style=\"display:block;\"><strong>OFF</strong> \u2014 your saved templates, sale campaigns, import history, column layouts and settings stay in the store, so reinstalling picks up where you left off.</span><span style=\"display:block;margin-top:6px;\"><strong>ON</strong> \u2014 deleting the plugin from the Plugins screen clears all of it.</span><span style=\"display:block;margin-top:6px;\">Your products, categories, brands, tags, attributes and images are never touched either way.</span>"
           ));
           $body.append(deleteSec.$el);
           var $saveBtn = $2('<button class="wcbat-btn wcbat-btn-primary">Save Settings</button>');
@@ -24617,9 +24691,9 @@
               var editing = S.activeTab === "coupon-manager" && S.cpmHasEdits && S.cpmHasEdits();
               if (!turningOff || !editing) return Promise.resolve(true);
               return pmConfirm("Switch coupons off and lose unsaved coupon changes?", {
-                title: "Unsaved changes",
+                title: "Unsaved Changes",
                 confirmLabel: "Switch it off",
-                cancelLabel: "Keep editing"
+                cancelLabel: "Keep Editing"
               }).then(function (ok) {
                 /* Said and meant. They were only moved off the screen before,
                    so the edits were still held and the browser went on asking
@@ -25184,9 +25258,14 @@
 
       function buildLicensing() {
         $body.empty();
-        var $wrap = $2('<div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding:20px 0;text-align:center;"></div>');
-        $wrap.append('<div style="font-size:40px;">\u{1F511}</div>');
-        $wrap.append('<div style="font-size:16px;font-weight:600;">License</div>');
+        /* The panel carries its own class now, so the look lives in the
+           stylesheet and the box can be centred down the tab. */
+        var $wrap = $2('<div class="wcbat-license-panel"></div>');
+        /* A drawn key rather than the keyboard emoji: WordPress swapped
+           that for a Twemoji image, which read as clip art beside the
+           rest of the interface. */
+        $wrap.append('<div class="wcbat-license-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></svg></div>');
+        /* The "License" heading said what the tab it sits in already says. */
         var $status = $2('<div style="font-size:13px;color:var(--wcbat-text-muted);max-width:420px;">Checking this site\u2019s license\u2026</div>');
         var $buttons = $2('<div style="display:flex;gap:8px;margin-top:6px;"></div>');
         $wrap.append($status).append($buttons);
@@ -25212,12 +25291,12 @@
             return;
           }
           if (d.state === "active") {
-            $status.html('<span style="color:var(--wcbat-primary);font-weight:600;">License active</span>' + (d.plan ? " \u2014 " + safeText(d.plan) + " plan" : "") + ".");
-            addButton("Manage license", d.account_url, false);
+            $status.html('<span style="color:var(--wcbat-primary);font-weight:600;">License Active</span>' + (d.plan ? " \u2014 " + safeText(d.plan) + " plan" : "") + ".");
+            addButton("Manage License", d.account_url, false);
           } else if (d.state === "trial") {
             var days = (d.trial_days_left === null || typeof d.trial_days_left === "undefined") ? "" : " \u2014 " + d.trial_days_left + " day" + (d.trial_days_left === 1 ? "" : "s") + " left";
             $status.html('<span style="font-weight:600;">Trial running</span>' + days + ".");
-            addButton("Manage license", d.account_url, false);
+            addButton("Manage License", d.account_url, false);
             addButton("See Plans", d.pricing_url, true);
           } else if (d.is_pro) {
             /* The paid tools are switched on here, whatever the licence record
@@ -25226,7 +25305,7 @@
                told the owner "You are on the free version" and then tried to
                sell them what they were already using. */
             $status.html('<span style="color:var(--wcbat-primary);font-weight:600;">The paid tools are switched on</span> for this site.');
-            addButton("Manage license", d.account_url, false);
+            addButton("Manage License", d.account_url, false);
             addButton(d.license_action === "connect" ? "Already Bought?" : "I Have a License", d.license_url || d.activation_url || d.account_url, false);
           } else {
             $status.text("You are on the free version.");
@@ -26270,7 +26349,10 @@
         if (c) c();
       });
       var $overlay = $2('<div id="wcbat-filter-sets-overlay" class="wcbat-overlay-lo"></div>');
-      var $modal = $2('<div id="wcbat-filter-sets-modal" style="background:var(--paper);border:1px solid var(--ink);border-radius:var(--r-xl);width:100%;max-width:700px;height:80vh;min-height:min(500px, calc(100vh - 24px));max-height:calc(100vh - 24px);display:flex;flex-direction:column;"></div>');
+      /* .wcbat-modal-wrap brings the border, the corner radius and the
+         clipping that keeps the header inside them; the sizing sits in
+         .wcbat-filter-sets-modal rather than being typed in here. */
+      var $modal = $2('<div id="wcbat-filter-sets-modal" class="wcbat-modal-wrap wcbat-filter-sets-modal"></div>');
       var $header = $2('<div class="wcbat-modal-header"><h2>Filter Sets</h2><button class="wcbat-modal-close" id="wcbat-fs-close">&times;</button></div>');
       var $body = $2('<div style="flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;"></div>');
       var $footer = $2('<div style="padding:12px 20px;border-top:1px solid var(--wcbat-border);display:flex;align-items:center;gap:10px;flex-shrink:0;"></div>');
@@ -30107,15 +30189,36 @@
           setStickyStatus("");
         }, 5e3);
         showNotice("success", "Products saved successfully.", $2("#wcbat-pm-section"));
-        loadTags();
-        loadBrands();
-        /* Categories too. Only brands and tags were refreshed, and arriving at
-           the Categories screen fetches nothing when the list is already
-           loaded - so adding a product to a category here left the card
-           reading the old number until the whole page was reloaded. */
-        loadCatManager();
-        loadPmGrid(S.pmCurrentPage);
+        /* The grid and the counts are what the owner is sitting waiting for,
+           so they go first and on their own.
+
+           The three term lists are refreshed because a save can move a product
+           in and out of a category, a brand or a tag, and those screens show
+           counts - only brands and tags were refreshed once, and arriving at
+           the Categories screen fetches nothing when its list is already
+           loaded, so a product added to a category here left the card reading
+           the old number until the page was reloaded.
+
+           They used to be sent at the same moment as the grid: five requests
+           at once. A shop whose server runs few PHP workers has no room for
+           that - WordPress runs its own background chores by calling itself
+           over HTTP, which takes a worker too - so two of the five queued
+           behind the rest and took twenty-five seconds, with the screen frozen
+           until they came back. They are the same three fetches, run one after
+           another once the grid is back, so nothing competes with the save.
+
+           A grid fetch that fails does not run them, and nothing goes stale
+           for it: every save already marks the three as out of date in
+           wcbatTermCountsChanged, and each screen fetches again the next time
+           it is opened. */
         loadPmStatusCounts();
+        loadPmGrid(S.pmCurrentPage, null, function() {
+          loadTags(function() {
+            loadBrands(function() {
+              loadCatManager();
+            });
+          });
+        });
       });
     });
     $2(document).on("click", ".tag-view-products-btn", function() {
@@ -30139,9 +30242,9 @@
          either runs - closing a card means it is the active one, so the null
          test covers that branch too. */
       pmConfirmIf(S.activeTagCard !== null && S.tagDirty, "Unsaved changes. Discard?", {
-        title: "Unsaved changes",
+        title: "Unsaved Changes",
         confirmLabel: "Discard",
-        cancelLabel: "Keep editing"
+        cancelLabel: "Keep Editing"
       }).then(function (ok) {
         if (!ok) return;
           if (S.activeTagCard === id) {
@@ -30160,7 +30263,7 @@
          way round, with nothing added, the question came up under the
          browser's own wording - Cancel and Confirm - which says nothing
          about which one keeps the work. */
-      pmConfirmIf(S.tagDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep editing" }).then(function (ok) {
+      pmConfirmIf(S.tagDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep Editing" }).then(function (ok) {
         if (!ok) return;
         S.activeTagCard = null;
         S.tagDirty = false;
@@ -30234,7 +30337,7 @@
       });
     });
     $2("#create-tag-btn").on("click", function() {
-      pmConfirmIf(S.activeTagCard !== null && S.tagDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep editing" }).then(function (ok) {
+      pmConfirmIf(S.activeTagCard !== null && S.tagDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep Editing" }).then(function (ok) {
         if (!ok) return;
         S.tagDirty = false;
         openTagCreatePanel();
@@ -30397,9 +30500,9 @@
          either runs - closing a card means it is the active one, so the null
          test covers that branch too. */
       pmConfirmIf(S.activeBrandCard !== null && S.brandDirty, "Unsaved changes. Discard?", {
-        title: "Unsaved changes",
+        title: "Unsaved Changes",
         confirmLabel: "Discard",
-        cancelLabel: "Keep editing"
+        cancelLabel: "Keep Editing"
       }).then(function (ok) {
         if (!ok) return;
           if (S.activeBrandCard === id) {
@@ -30414,7 +30517,7 @@
       });
     });
     $2(document).on("click", "#brand-close-btn", function() {
-      pmConfirmIf(S.brandDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep editing" }).then(function (ok) {
+      pmConfirmIf(S.brandDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep Editing" }).then(function (ok) {
         if (!ok) return;
         S.activeBrandCard = null;
         S.brandDirty = false;
@@ -30423,7 +30526,7 @@
       }.bind(this));
     });
     $2("#create-brand-btn").on("click", function() {
-      pmConfirmIf(S.activeBrandCard !== null && S.brandDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep editing" }).then(function (ok) {
+      pmConfirmIf(S.activeBrandCard !== null && S.brandDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep Editing" }).then(function (ok) {
         if (!ok) return;
         S.brandDirty = false;
         openBrandPanel(null, true);
@@ -30504,7 +30607,7 @@
       // Clicking the open card again closes its editor, and asks first like
       // the close button does; it used to drop typed changes without a word.
       var closing = $2(this).hasClass("is-active") && S.catNavStack.length === 0;
-      pmConfirmIf(S.catDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep editing" }).then(function (ok) {
+      pmConfirmIf(S.catDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep Editing" }).then(function (ok) {
         if (!ok) return;
         S.catDirty = false;
         if (closing) {
@@ -30520,7 +30623,7 @@
       if ($2(e.target).closest(".wcbat-cat-view-products-btn").length) return;
       var id = parseInt($2(this).data("id"), 10);
       if (!id) return;
-      pmConfirmIf(S.catDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep editing" }).then(function (ok) {
+      pmConfirmIf(S.catDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep Editing" }).then(function (ok) {
         if (!ok) return;
         var currentName = $2("#cat-detail-panel .wcbat-detail-title").text().replace("Edit: ", "").trim();
         var currentId = parseInt($2("#cat-save-btn").data("id"), 10);
@@ -30539,14 +30642,14 @@
       e.preventDefault();
       var id = parseInt($2(this).data("id"), 10);
       var stackIdx = parseInt($2(this).data("stack"), 10);
-      pmConfirmIf(S.catDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep editing" }).then(function (ok) {
+      pmConfirmIf(S.catDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep Editing" }).then(function (ok) {
         if (!ok) return;
         S.catNavStack = S.catNavStack.slice(0, stackIdx);
         openCatPanel(id, S.catNavStack);
       }.bind(this));
     });
     $2(document).on("click", "#cat-close-btn", function() {
-      pmConfirmIf(S.catDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep editing" }).then(function (ok) {
+      pmConfirmIf(S.catDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep Editing" }).then(function (ok) {
         if (!ok) return;
         $2("#cat-detail-panel").hide();
         $2("#cat-card-grid .wcbat-cat-card").removeClass("is-active");
@@ -30736,7 +30839,7 @@
       });
     });
     $2(document).on("click", "#create-cat-btn", function() {
-      pmConfirmIf(S.catDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep editing" }).then(function (ok) {
+      pmConfirmIf(S.catDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep Editing" }).then(function (ok) {
         if (!ok) return;
         S.catNavStack = [];
         $2("#cat-card-grid .wcbat-cat-card").removeClass("is-active");
@@ -30746,7 +30849,7 @@
     $2(document).on("click", "#cat-add-child-btn", function() {
       var parentId = parseInt($2(this).data("parent"), 10);
       var parentName = $2(this).data("parent-name");
-      pmConfirmIf(S.catDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep editing" }).then(function (ok) {
+      pmConfirmIf(S.catDirty, "You have unsaved changes. Discard?", { danger: true, confirmLabel: "Discard", cancelLabel: "Keep Editing" }).then(function (ok) {
         if (!ok) return;
         openCatCreatePanel(parentId, parentName);
       }.bind(this));
@@ -32103,7 +32206,7 @@
             ev.preventDefault();
             curVal = t.id;
             $2("#fm-s-tmpl-sel").val(t.id).trigger("change");
-            $2("#fm-s-tmpl-label").text(t.name);
+            $2("#fm-s-tmpl-label").text(decodeHtml(t.name));
             closeDd();
           });
           $list.append($item);
@@ -32202,6 +32305,10 @@
         if (i >= toProcess.length) {
           if (typeof S.fsRender === "function") S.fsRender();
           $2("#fm-s-tmpl-sel").val("");
+          /* The name shown has to go back as well. Only the value behind it
+             was cleared, so the box went on naming the template that had just
+             been added while the list underneath marked nothing as chosen. */
+          $2("#fm-s-tmpl-label").text("\u2014 Select a template \u2014");
           $2("#fm-s-tmpl-attrs").hide();
           $2("#fm-s-tmpl-attr-list").empty();
           if (made.length) {
@@ -32499,6 +32606,16 @@
         if (isNew) {
           $2("#fm-set-detail").hide();
           S.fmActiveSet = null;
+          /* The editor is gone, so there is nothing left to lose. Without this
+             the snapshot taken when it opened - an empty new widget - stayed
+             behind and never matched the panel it left in the page, so every
+             widget opened after a create was met with "unsaved changes". */
+          S.fsOpenedAs = null;
+        } else {
+          /* The editor stays open on a save, so what is on screen is now what
+             the shop holds. Re-baselined, or closing it would ask about work
+             that has already been written. */
+          S.fsOpenedAs = fmSetAsItStands();
         }
         showNotice("success", "Filter widget saved.", $2("#fm-set-notice-anchor"));
       }, function(err) {
@@ -32550,9 +32667,9 @@
         return;
       }
       pmConfirm("This filter widget has changes you have not saved. Discard them and close?", {
-        title: "Unsaved changes",
+        title: "Unsaved Changes",
         confirmLabel: "Discard",
-        cancelLabel: "Keep editing"
+        cancelLabel: "Keep Editing"
       }).then(function (ok) {
         if (ok) then();
       });
@@ -32700,6 +32817,176 @@
       var $trigLabel = $2("<span>\u2014 Select attributes \u2014</span>");
       $trigger.append($trigLabel).append('<span style="color:var(--wcbat-text-muted);">&#9662;</span>');
       $attrBody.append($trigger);
+      /* An attribute template already names the attributes a kind of product
+         uses. Picking one lists them here to be ticked, and Add Selected ticks
+         those in the list above - worked the way the filter widget editor
+         works it, so the two read as one feature. The picker clears itself
+         afterwards, so a second template can be added on top of the first.
+         Nothing is created here: Create Filters still does that, and the
+         settings below reach whatever it makes. Templates are a paid screen,
+         so without a licence none of this is drawn and the box reads exactly
+         as it did before. */
+      /*! <fs_premium_only> */
+      if (S.isPro) {
+        var TMPL_NONE = "— Select a template —";
+        var $tmplWrap = $2('<div class="fm-bc-tmpl-wrap"></div>');
+        $tmplWrap.append('<label class="wcbat-label">LOAD FROM TEMPLATE <span style="font-weight:400;color:var(--wcbat-text-muted)">(optional)</span></label>');
+        var $tmplTrigger = $2('<button type="button" class="wcbat-pm-input fm-bc-tmpl-trigger" style="width:100%;text-align:left;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:0 10px;box-sizing:border-box;background:var(--paper);border:1px solid var(--wcbat-border);height:36px;font-size:13px;border-radius:var(--wcbat-radius-sm);"></button>');
+        var $tmplLabel = $2("<span></span>").text(TMPL_NONE);
+        $tmplTrigger.append($tmplLabel).append('<span style="color:var(--wcbat-text-muted);">&#9662;</span>');
+        var $tmplAttrs = $2('<div class="wcbat-fm-tmpl-attr-list fm-bc-tmpl-attrs wcbat-hidden"></div>');
+        var $tmplAdd = $2('<button type="button" class="wcbat-btn wcbat-btn-secondary wcbat-btn-sm fm-bc-tmpl-add wcbat-hidden">+ Add Selected</button>');
+        $tmplWrap.append($tmplTrigger).append($tmplAttrs).append($tmplAdd);
+        $attrBody.append($tmplWrap);
+        var $tmplPanel = null;
+        var closeTmplPanel = function() {
+          if ($tmplPanel) {
+            $tmplPanel.remove();
+            $tmplPanel = null;
+          }
+          $2(document).off("mousedown.fmbctmpl");
+        };
+        /* Back to how it started, so the next template is picked from a clean
+           box rather than one still naming the last one added. */
+        var resetTmplPicker = function() {
+          $tmplLabel.text(TMPL_NONE);
+          $tmplAttrs.empty().addClass("wcbat-hidden");
+          $tmplAdd.addClass("wcbat-hidden");
+        };
+        /* The attributes a template names, ticked and ready. Ones the shop no
+           longer has are left out, because there is nothing to tick them on. */
+        var listTemplateAttrs = function(t) {
+          var rows = 0;
+          var gone = 0;
+          $tmplAttrs.empty();
+          Object.keys(t.attributes || {}).forEach(function(slug) {
+            var attr = (S.allAttributes || []).find(function(a) {
+              return a.slug === slug;
+            });
+            if (!attr) {
+              gone++;
+              return;
+            }
+            var label = decodeHtml(attr.name);
+            $tmplAttrs.append('<label class="wcbat-fm-tmpl-attr-row"><input type="checkbox" class="wcbat-fm-tmpl-attr-cb" data-slug="' + safeText(attr.slug) + '" data-label="' + safeText(label) + '" checked><span>' + safeText(label) + "</span></label>");
+            rows++;
+          });
+          if (!rows) {
+            resetTmplPicker();
+            return { rows: 0, gone: gone };
+          }
+          $tmplLabel.text(decodeHtml(t.name));
+          $tmplAttrs.removeClass("wcbat-hidden");
+          $tmplAdd.removeClass("wcbat-hidden");
+          return { rows: rows, gone: gone };
+        };
+        $tmplAdd.on("click", function() {
+          var added = 0;
+          $tmplAttrs.find(".wcbat-fm-tmpl-attr-cb:checked").each(function() {
+            var slug = $2(this).data("slug");
+            var attr = (S.allAttributes || []).find(function(a) {
+              return a.slug === slug;
+            });
+            if (!attr) return;
+            fmBcSelected[attr.slug] = attr;
+            added++;
+          });
+          if (!added) {
+            showNotice("warning", "Tick at least one attribute to add.");
+            return;
+          }
+          updateTrigLabel();
+          if ($panel) buildList($panel.find(".fm-bc-attr-search").val() || "");
+          resetTmplPicker();
+        });
+        $tmplTrigger.on("mousedown", function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          if ($tmplPanel) {
+            closeTmplPanel();
+            return;
+          }
+          /* Two panels hanging off the same box would overlap each other. */
+          closePanel();
+          var rect = $tmplTrigger[0].getBoundingClientRect();
+          $tmplPanel = $2('<div class="fm-bc-attr-panel"></div>').css({
+            position: "fixed",
+            top: rect.bottom + 2 + "px",
+            left: rect.left + "px",
+            width: rect.width + "px",
+            zIndex: 100010
+          });
+          var $tsrow = $2('<div class="fm-bc-attr-search-row"></div>');
+          var $tsi = $2('<input type="text" class="fm-bc-tmpl-search" placeholder="Search templates...">');
+          var $tsx = $2('<button type="button" class="wcbat-search-clear" style="display:none;">&times;</button>');
+          $tsrow.append($tsi).append($tsx);
+          var $tlist = $2('<div class="fm-bc-attr-list"></div>');
+          $tmplPanel.append($tsrow).append($tlist);
+          $2("body").append($tmplPanel);
+          /* Flipped above the box when there is no room beneath it, the way
+             the attribute panel beside it is. */
+          var ph = $tmplPanel.outerHeight() || 300;
+          var tp = (window.innerHeight - rect.bottom >= ph + 6 || window.innerHeight - rect.bottom >= rect.top) ? rect.bottom + 2 : Math.max(8, rect.top - ph - 2);
+          $tmplPanel.css("top", tp + "px");
+          var buildTmplList = function(q) {
+            $tlist.empty();
+            var lq = (q || "").toLowerCase().trim();
+            var tmpls = S.allTemplates || [];
+            if (!tmpls.length) {
+              $tlist.append('<div class="wcbat-dropdown-empty">No templates yet.</div>');
+              return;
+            }
+            var shown = 0;
+            tmpls.forEach(function(t) {
+              var name = decodeHtml(t.name);
+              if (lq && name.toLowerCase().indexOf(lq) === -1) return;
+              var count = Object.keys(t.attributes || {}).length;
+              var $row = $2('<div class="fm-bc-attr-row" style="justify-content:space-between;"></div>');
+              $row.append($2("<span></span>").text(name));
+              $row.append($2('<span style="color:var(--wcbat-text-muted);font-size:11px;"></span>').text(count + " attribute" + (count !== 1 ? "s" : "")));
+              $row.on("mousedown", function(ev) {
+                ev.preventDefault();
+                ev.stopPropagation();
+                closeTmplPanel();
+                var r = listTemplateAttrs(t);
+                /* A template with nothing on it and a template whose
+                   attributes have since been deleted both show nothing, and
+                   saying the same for each would be a lie about one. */
+                if (!count) {
+                  showNotice("warning", "This template has no attributes on it.");
+                } else if (!r.rows) {
+                  showNotice("warning", "Nothing to show - this template's attributes are no longer in the shop.");
+                } else if (r.gone) {
+                  showNotice("warning", r.gone + " attribute" + (r.gone !== 1 ? "s are" : " is") + " no longer in the shop and " + (r.gone !== 1 ? "were" : "was") + " left out.");
+                }
+              });
+              $tlist.append($row);
+              shown++;
+            });
+            if (!shown) $tlist.append('<div class="wcbat-dropdown-empty">No results.</div>');
+          };
+          buildTmplList("");
+          setTimeout(function() {
+            $tsi.focus();
+          }, 50);
+          $tsi.on("input", function() {
+            $tsx.toggle($2(this).val().length > 0);
+            buildTmplList($2(this).val());
+          });
+          $tsx.on("mousedown", function(e2) {
+            e2.preventDefault();
+            $tsi.val("").focus();
+            $tsx.hide();
+            buildTmplList("");
+          });
+          setTimeout(function() {
+            $2(document).on("mousedown.fmbctmpl", function(e2) {
+              if (!$2(e2.target).closest(".fm-bc-attr-panel").length && !$2(e2.target).closest(".fm-bc-tmpl-trigger").length) closeTmplPanel();
+            });
+          }, 50);
+        });
+      }
+      /*! </fs_premium_only> */
       $attrCard.append($attrBody);
       $body.append($attrCard);
       function updateTrigLabel() {
@@ -32831,6 +33118,11 @@
       $2("body").append($overlay);
       function closeModal() {
         closePanel();
+        /* The template picker hangs off the body like the attribute panel
+           does, so closing the window has to take it along or it is left
+           floating over the screen behind. */
+        $2(".fm-bc-attr-panel").remove();
+        $2(document).off("mousedown.fmbctmpl");
         $overlay.remove();
       }
       $closeBtn.on("click", closeModal);
@@ -34423,9 +34715,9 @@
         clearTimeout(cpmSearchTimer);
         var hasEdits = Object.keys(cpmDirty).length > 0;
         pmConfirmIf(hasEdits, "You have coupon changes that are not saved. Discard them and load the list?", {
-          title: "Unsaved changes",
+          title: "Unsaved Changes",
           confirmLabel: "Discard",
-          cancelLabel: "Keep editing"
+          cancelLabel: "Keep Editing"
         }).then(function(ok) {
           if (!ok) {
             $2("#cpm-search").val(cpmSearch).closest(".wcbat-search-wrap").find(".wcbat-search-clear").toggle(cpmSearch.length > 0);
@@ -36405,7 +36697,7 @@
         if (!wcField) {
           return;
         }
-        var $opts = $2('<div class="imp-iopts" class="wcbat-col-stack"></div>');
+        var $opts = $2('<div class="imp-iopts wcbat-col-stack"></div>');
         if (wcField === "Images") {
           var $dr = $2('<div style="display:flex;align-items:center;gap:6px;font-size:12px;"></div>');
           $dr.append('<span class="wcbat-color-muted">Delimiter:</span>');
